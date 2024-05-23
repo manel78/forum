@@ -9,15 +9,14 @@ import (
 )
 
 func main() {
-	// ouvre connection a la base de donées
+
 	db, err := sql.Open("sqlite3", "./database.db")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	// table des utilisateurs
-	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS users (
+	_, err = db.Exec(`CREATE TABLE If NOT EXIST user (
 		id INTEGER PRIMARY KEY,
 		username TEXT UNIQUE,
 		password TEXT
@@ -27,7 +26,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// categories
+	// category
 	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS categories (
 		id INTEGER PRIMARY KEY,
 		name TEXT UNIQUE
