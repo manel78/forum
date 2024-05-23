@@ -1,4 +1,4 @@
-package main
+package data
 
 import (
 	"database/sql"
@@ -22,6 +22,7 @@ func main() {
 		username TEXT UNIQUE,
 		password TEXT
 	)`)
+
 	if err != nil {
 		log.Fatal(err)
 	}
